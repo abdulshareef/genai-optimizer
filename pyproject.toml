@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "genai-optimizer"
+version = "1.0.0"
+description = "Provider neutral prompt and output optimisation layer for any Gen AI model. Cuts token cost without losing constraints or facts."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "Dr. Abdul Shareef Pallivalappil", email = "info@talfor.in" }]
+keywords = ["llm", "prompt", "optimization", "tokens", "cost", "anthropic",
+            "openai", "gemini", "ollama", "prompt-injection", "genai"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dependencies = []
+
+[project.optional-dependencies]
+exact = ["tiktoken>=0.5"]
+dev = ["pytest>=7.0", "pytest-cov"]
+
+[project.urls]
+Homepage = "https://github.com/abdulshareef/genai-optimizer"
+Issues = "https://github.com/abdulshareef/genai-optimizer/issues"
+Organisation = "https://talfor.in"
+
+[project.scripts]
+genai-optimize = "genai_optimizer.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["genai_optimizer*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
